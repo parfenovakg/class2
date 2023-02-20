@@ -55,10 +55,6 @@ async def error_handling_middleware(request: "Request", handler):
             status=HTTP_ERROR_CODES[500], 
             message=str(e)
         )
-    # TODO: обработать все исключения-наследники HTTPException и отдельно Exception, как server error
-    #  использовать текст из HTTP_ERROR_CODES
-    #!! DONE
-
 
 def setup_middlewares(app: "Application"):
     app.middlewares.append(error_handling_middleware)
